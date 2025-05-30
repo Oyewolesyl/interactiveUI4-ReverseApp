@@ -27,17 +27,22 @@ const ProfilePage = () => {
   return (
     <div className="mobile-container">
       <header className="profile-header">
-        <Link to="/" className="back-button">
-          <img src="/placeholder.svg?height=24&width=24" alt="" />
+        {/* Back button links to home */}
+        <Link to="/" className="back-button" aria-label="Go back to Home Page">
+          <img src="/assets/backicon.svg" alt="Back" height={24} width={24} />
         </Link>
         <div className="logo">
-          <img src="/placeholder.svg?height=24&width=24" alt="Logo" />
+          <img src="/assets/reverse(1).svg" alt="Logo" />
         </div>
       </header>
 
       <main className="main-content profile-content">
         <div className="profile-header-section">
-          <div className="profile-avatar"></div>
+          <div
+            className="profile-avatar"
+            style={{ backgroundImage: "url('/assets/Avatar.svg')" }}
+          ></div>
+
           <h1 className="profile-name">Malik</h1>
           <p className="profile-email">email@address.com</p>
 
@@ -45,7 +50,10 @@ const ProfilePage = () => {
             <button className="profile-button" onClick={handleEditProfile}>
               Edit Profile
             </button>
-            <button className="profile-button settings-button" onClick={handleSettings}>
+            <button
+              className="profile-button settings-button"
+              onClick={handleSettings}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -67,7 +75,10 @@ const ProfilePage = () => {
 
         <div className="rewards-card">
           <div className="rewards-user">
-            <div className="rewards-avatar"></div>
+            <div
+              className="rewards-avatar"
+              style={{ backgroundImage: "url('/assets/Avatar.svg')" }}
+            ></div>
             <div className="rewards-user-info">
               <p className="rewards-user-name">Malik</p>
               <p className="rewards-user-email">email@address.com</p>
@@ -79,10 +90,17 @@ const ProfilePage = () => {
               <p className="rewards-label">Total rewards:</p>
               <p className="rewards-amount">£40</p>
             </div>
-            <div className="rewards-badge">£40</div>
+            <div
+              className="rewards-badge"
+  style={{ backgroundImage: "url('/assets/40voucher.svg')" }}
+
+            ></div>
           </div>
 
-          <button className="rewards-history-button" onClick={handleRewardHistory}>
+          <button
+            className="rewards-history-button"
+            onClick={handleRewardHistory}
+          >
             Show reward history
           </button>
         </div>
@@ -124,21 +142,21 @@ const ProfilePage = () => {
         </div>
       </main>
 
-    <nav className="bottom-nav">
+      <nav className="bottom-nav">
         <Link to="/" className="nav-item">
-          <img src="/assets/homeinactive.svg" width="32" height="32" alt="" />
+          <img src="/assets/homeinactive.svg" width="32" height="32" alt="Home" />
           <span>Home</span>
         </Link>
-        <Link to="/manual" className="nav-item active">
-          <img src="/assets/justRecycle-logo-altactive.svg" width="32" height="32" alt="" />
+        <Link to="/manual" className="nav-item">
+          <img src="/assets/recyclee.svg" width="32" height="32" alt="Recycle" />
           <span>Recycle</span>
         </Link>
         <Link to="#" className="nav-item">
-          <img src="/assets/explore_24px.svg" width="32" height="32" alt="" />
+          <img src="/assets/explore_24px.svg" width="32" height="32" alt="Discover" />
           <span>Discover</span>
         </Link>
-        <Link to="/profile" className="nav-item">
-          <img src="/assets/profile-active.svg" width="32" height="32" alt="" />
+        <Link to="/profile" className="nav-item active">
+          <img src="/assets/profile-active.svg" width="32" height="32" alt="Profile" />
           <span>Profile</span>
         </Link>
       </nav>

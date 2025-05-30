@@ -1,10 +1,12 @@
 "use client"
-import { Link } from "react-router-dom"
-import heroImage from '../assets/Component1.png'  // adjust path if needed
+import { Link, useNavigate } from "react-router-dom"
 
 const HomePage = () => {
+  const navigate = useNavigate()
+
+  // Navigate to /manual page on button click
   const handleRecycleClick = () => {
-    alert("Recycling process would start here")
+    navigate("/manual")
   }
 
   const handleViewClick = () => {
@@ -26,14 +28,21 @@ const HomePage = () => {
       <main className="main-content">
         <div className="video-container">
           <video controls className="feature-video">
-            <source src="../assets/videoad.mp4" type="video/mp4" />
+            <source src="/assets/videoad.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div
           className="hero-image"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{
+            backgroundImage: `url('/assets/Component1.png')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "180px",
+            position: "relative",
+          }}
         >
           <div className="hero-overlay">
             <h2 className="hero-title"></h2>
@@ -55,7 +64,16 @@ const HomePage = () => {
 
         <div className="merchandise-section">
           <div className="merch-item">
-            <div className="merch-image"></div>
+            <div
+              className="merch-image"
+              style={{
+                backgroundImage: "url('/assets/Untitled-design2.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                height: "254px",
+              }}
+            ></div>
             <div className="merch-details">
               <p>item description</p>
               <button className="view-button" onClick={handleViewClick}>
@@ -65,7 +83,16 @@ const HomePage = () => {
           </div>
 
           <div className="merch-item">
-            <div className="merch-image2"></div>
+            <div
+              className="merch-image2"
+              style={{
+                backgroundImage: "url('/assets/Untitleddesign(1)2.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                height: "254px",
+              }}
+            ></div>
             <div className="merch-details">
               <p>item description</p>
               <button className="view-button" onClick={handleViewClick}>
@@ -75,7 +102,16 @@ const HomePage = () => {
           </div>
 
           <div className="merch-item">
-            <div className="merch-image3"></div>
+            <div
+              className="merch-image3"
+              style={{
+                backgroundImage: "url('/assets/Untitleddesign(6)2.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                height: "254px",
+              }}
+            ></div>
             <div className="merch-details">
               <p>item description</p>
               <button className="view-button" onClick={handleViewClick}>
@@ -85,7 +121,16 @@ const HomePage = () => {
           </div>
 
           <div className="merch-item">
-            <div className="merch-image4"></div>
+            <div
+              className="merch-image4"
+              style={{
+                backgroundImage: "url('/assets/Untitleddesign2.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                height: "254px",
+              }}
+            ></div>
             <div className="merch-details">
               <p>item description</p>
               <button className="view-button" onClick={handleViewClick}>
@@ -110,7 +155,6 @@ const HomePage = () => {
           <span>Discover</span>
         </Link>
         <Link to="/profile" className="nav-item">
-          {/* Profile icon - replace with your profile icon */}
           <img src="/assets/profile.svg" width="32" height="32" alt="" />
           <span>Profile</span>
         </Link>

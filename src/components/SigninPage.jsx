@@ -9,6 +9,8 @@ const SigninPage = () => {
     terms: false,
   })
 
+  const [error, setError] = useState(null)
+
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target
     setFormData((prevState) => ({
@@ -17,32 +19,49 @@ const SigninPage = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+
+    setError(null)
 
     if (!formData.terms) {
       alert("Please accept the terms and conditions")
       return
     }
 
-    // In a real app, you would send this data to a server
-    console.log("Sign in form submitted:", {
-      email: formData.email,
-      nickname: formData.nickname,
-    })
+    try {
+  const response = await fetch("/api/signin.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    email: formData.email,
+    nickname: formData.nickname,
+  }),
+})
 
-    // Redirect to home page
-    window.location.href = "/"
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        // Redirect to homepage on successful login
+        alert("Signin successful!");
+window.location.href = "/";
+      } else {
+        // Show error returned from backend
+        setError(data.message || "Incorrect email or nickname")
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.")
+    }
   }
 
   return (
     <div className="mobile-container">
       <header className="header">
         <div className="logo">
-          <img src="/placeholder.svg?height=24&width=24" alt="Logo" />
+          <img src="/assets/Vector.svg" alt="Logo" />
         </div>
         <div className="logo">
-          <img src="/placeholder.svg?height=24&width=24" alt="Logo" />
+          <img src="/assets/reverse(1).svg?height=24&width=24" alt="Logo" />
         </div>
       </header>
 
@@ -75,6 +94,8 @@ const SigninPage = () => {
               onChange={handleChange}
             />
           </div>
+
+          {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
 
           <button type="submit" className="auth-button">
             Next

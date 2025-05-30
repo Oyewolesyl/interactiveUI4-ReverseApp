@@ -200,7 +200,8 @@ const ManualPage = () => {
           <span>Home</span>
         </Link>
         <Link to="/manual" className="nav-item active">
-          <img src="/assets/recyclee.svg" width="32" height="32" alt="" />
+                    <img src="/assets/justRecycle-logo-altactive.svg" width="32" height="32" alt="" />
+
           <span>Recycle</span>
         </Link>
         <Link to="#" className="nav-item">

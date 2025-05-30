@@ -68,7 +68,7 @@ const ScanPage = () => {
     <div className="mobile-container">
       <header className="profile-header">
         <Link to="/manual" className="back-button">
-          <img src="/placeholder.svg?height=24&width=24" alt="" />
+          <img src="/assets/backicon.svg" alt="" />
         </Link>
         <button className="menu-button">
           <svg
