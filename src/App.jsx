@@ -5,6 +5,7 @@ import ManualPage from "./components/ManualPage";
 import ScanPage from "./components/ScanPage";
 import SignupPage from "./components/SignupPage";
 import SigninPage from "./components/SigninPage";
+import DiscoverPage from "./components/DiscoverPage"; // ADD THIS
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/scan" element={<ScanPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signin" element={<SigninPage />} />
+        <Route path="/discover" element={<DiscoverPage />} /> {/* ADD THIS */}
       </Routes>
     </BrowserRouter>
   );

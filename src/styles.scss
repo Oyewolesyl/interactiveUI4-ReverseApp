@@ -8,25 +8,21 @@ $border-color: #eee;
 $black: #000000;
 $dark-gray: #333333;
 $gray: #777777;
-$light-gray: #cccccc;
+$light-gray: #f5f1f1;
 $white: #ffffff;
-
 $charcoal: #2e2e2e;
 $slate-gray: #708090;
 $dim-gray: #696969;
 $jet-black: #343434;
 $onyx: #353839;
-
 $font-family: 'Inter', sans-serif;
 
-// Base styles
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
 
 body {
   font-family: $font-family;
@@ -46,7 +42,6 @@ body {
   flex-direction: column;
 }
 
-// Header
 .header {
   display: flex;
   justify-content: space-between;
@@ -64,7 +59,6 @@ body {
 .logo-text {
   font-weight: bold;
   font-size: 24px;
-
   &.green {
     color: $primary-color;
   }
@@ -76,14 +70,14 @@ body {
   cursor: pointer;
 }
 
-// Main content
+
 .main-content {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 64px; // Space for bottom nav
+  padding-bottom: 64px; 
 }
 
-// Video container
+
 .video-container {
   width: 100%;
   position: relative;
@@ -95,15 +89,12 @@ body {
   display: block;
 }
 
-// Hero image
+
 .hero-image {
   height: 200px;
   width: 100%;
   position: relative;
   background-color: $secondary-color;
-
-  // Use an absolute path if your image is in the public folder
-
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -122,7 +113,7 @@ body {
   font-weight: bold;
 }
 
-// Action section
+
 .action-section {
   padding: 16px;
 }
@@ -152,7 +143,7 @@ body {
   color: $primary-color;
 }
 
-// Merchandise section
+
 .merchandise-section {
   padding: 0;
   background-color: $dark-gray;
@@ -182,12 +173,71 @@ body {
   align-items: center;
 }
 
+
+.merch-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 20px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.merch-description {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
 .view-button {
   background: none;
   border: none;
   color: #9ca3af;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
+  text-align: left;
+  padding: 0;
+  
+  &:hover {
+    color: rgba(48, 226, 95, 0.478);
+  }
+}
+
+
+.search-container {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.search-input {
+  width: 94%;
+  height: 48px;
+  border-radius: 24px;
+  border: 1px solid $border-color;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: white;
+  
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+  
+  &::placeholder {
+    color: $medium-gray;
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: $medium-gray;
+  font-style: italic;
+  padding: 20px;
 }
 
 // Bottom navigation
@@ -215,11 +265,9 @@ body {
   color: $medium-gray;
   text-decoration: none;
   font-size: 12px;
-
   &.active {
     color: $primary-color;
   }
-
   svg {
     margin-bottom: 4px;
     width: 32px;
@@ -248,7 +296,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
   label {
     font-size: 18px;
     font-weight: 500;
@@ -293,7 +340,6 @@ body {
 .auth-link {
   text-align: center;
   font-size: 14px;
-
   a {
     color: $medium-gray;
     text-decoration: none;
@@ -347,11 +393,11 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: $secondary-color; /* Make sure this SCSS variable is defined */
+  background-color: $secondary-color;
   margin-bottom: 8px;
   background-size: cover;
   background-position: center;
-  background-image: url('https://placehold.co/80x80'); /* Add this line */
+  background-image: url('https://placehold.co/80x80');
 }
 
 .profile-name {
@@ -408,8 +454,7 @@ body {
   border-radius: 50%;
   background-color: #374151;
   background-size: cover;
-    background-image: url('https://placehold.co/80x80'); /* Add this line */
-
+  background-image: url('https://placehold.co/80x80');
   background-position: center;
 }
 
@@ -445,8 +490,7 @@ body {
   padding: 4px 12px;
   border-radius: 4px;
   background-size: cover;
-   background-image: url('https://placehold.co/80x80'); /* Add this line */
-
+  background-image: url('https://placehold.co/80x80');
 }
 
 .rewards-history-button {
@@ -495,11 +539,9 @@ body {
   color: $medium-gray;
   font-weight: 500;
   position: relative;
-
   &.active {
     color: #000;
     font-weight: 600;
-
     &::after {
       content: '';
       position: absolute;
@@ -664,4 +706,403 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.qr-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.qr-popup-content {
+  background: $white;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  margin: 0 16px;
+}
+
+.qr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: $text-color;
+    margin: 0;
+  }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: $medium-gray;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.qr-code-container {
+  margin: 24px 0;
+  padding: 16px;
+  background-color: $light-gray;
+  border-radius: 8px;
+}
+
+.qr-code-text {
+  margin-top: 16px;
+  font-weight: 600;
+  color: $text-color;
+  font-size: 14px;
+}
+
+.qr-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.print-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: $primary-color;
+  color: $white;
+  font-weight: 600;
+  font-size: 14px;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.close-btn-bottom {
+  padding: 12px 24px;
+  border: 2px solid $border-color;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: $white;
+  color: $text-color;
+  font-weight: 600;
+  font-size: 14px;
+  
+  &:hover {
+    background-color: $light-gray;
+  }
+}
+
+// Animated Number Styles
+.animated-number {
+  display: inline-block;
+  font-weight: bold;
+  color: $primary-color;
+  font-size: inherit;
+}
+
+// Print Rewards Button
+.print-rewards-button {
+  background: none;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  padding: 8px 16px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.rewards-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+// Merchandise Popup Styles
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.popup-content {
+  background: $white;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0 24px;
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: $text-color;
+    margin: 0;
+  }
+}
+
+.popup-body {
+  padding: 24px;
+}
+
+.popup-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background-color: $light-gray;
+}
+
+.popup-details {
+  h4 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: $text-color;
+  }
+}
+
+.popup-description {
+  color: $dark-gray;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.popup-price {
+  font-weight: bold;
+  color: rgb(1, 113, 1);
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.popup-availability {
+  color: $dark-gray;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px 24px 24px;
+}
+
+.popup-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  
+  &.primary {
+    background: $primary-color;
+    color: $white;
+    border: none;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  
+  &.secondary {
+    background: $white;
+    color: $text-color;
+    border: 2px solid $border-color;
+    
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+
+// Discover Page Styles
+.discover-content {
+  padding: 16px;
+  background-color: $light-gray;
+}
+
+.discover-header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding: 24px 0;
+  background-color: $white;
+  border-radius: 8px;
+  
+  h1 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: -2px;
+  }
+  
+  p {
+    color: $medium-gray;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.map-container {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $border-color;
+}
+
+.shops-list {
+  h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $text-color;
+  }
+}
+
+.shop-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: $white;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid $border-color;
+}
+
+.shop-info {
+  flex: 1;
+  
+  h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: $text-color;
+  }
+  
+  p {
+    margin: 0;
+    color: $medium-gray;
+    font-size: 14px;
+  }
+}
+
+.shop-btn {
+  background: $primary-color;
+  color: $white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.directions-btn {
+  background: $primary-color;
+  color: $white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// QR Scanner specific styles
+.scan-result {
+  color: $primary-color;
+  font-weight: bold;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: lighten($primary-color, 45%);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+// Carousel improvements
+.carousel-container {
+  margin: 16px 0;
+  
+  .carousel-track {
+    height: 180px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .qr-popup-content,
+  .popup-content {
+    margin: 0 8px;
+    max-width: calc(100vw - 16px);
+  }
+  
+  .popup-actions,
+  .qr-actions {
+    flex-direction: column;
+    
+    .popup-btn,
+    .print-btn,
+    .close-btn-bottom {
+      width: 100%;
+    }
+  }
 }

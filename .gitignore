@@ -1,27 +1,70 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
+/.pnp
+.pnp.js
 
-# next.js
-/.next/
-/out/
+# Testing
+/coverage
 
-# production
+# Production
 /build
 
-# debug
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 .pnpm-debug.log*
 
-# env files
-.env*
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# vercel
-.vercel
+# Optional npm cache directory
+.npm
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts.parcel-cache
+# Optional eslint cache
+.eslintcache
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary folders
+tmp/
+temp/
+
+# XAMPP specific (since you're using XAMPP)
+*.log
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Package manager lock files (keep one, remove others if not using)
+# yarn.lock
+# package-lock.json

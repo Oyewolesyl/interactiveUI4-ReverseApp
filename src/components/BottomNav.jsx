@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-
 // Import your images here — replace placeholders with your actual file names
 import homeIconActive from "../assets/home-icon-active.svg"; // placeholder
 import homeIconInactive from "../assets/homeinactive.svg";    // placeholder
@@ -33,8 +32,9 @@ export const BottomNav = () => {
         />
         <span>Recycle</span>
       </Link>
-      <Link to="#" className="nav-item">
-        <img src={exploreIcon} width="32" height="32" alt="Discover" />
+      {/* CHANGE THIS FROM "#" TO "/discover" */}
+      <Link to="/discover" className={`nav-item ${path === "/discover" ? "active" : ""}`}>
+        <img src={exploreIcon || "/placeholder.svg"} width="32" height="32" alt="Discover" />
         <span>Discover</span>
       </Link>
       <Link to="/profile" className={`nav-item ${path === "/profile" ? "active" : ""}`}>

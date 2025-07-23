@@ -47,10 +47,17 @@ const SignupPage = () => {
     <div className="mobile-container">
       <header className="header">
         <div className="logo">
-          <img src="/placeholder.svg?height=24&width=24" alt="Logo" />
+
+
+ <Link to="/signin" className="back-button">
+          <img src="/assets/backicon.svg" alt="" />
+        </Link>
+
+
+
         </div>
         <div className="logo">
-          <img src="/placeholder.svg?height=24&width=24" alt="Logo" />
+          <img src="/assets/reverse(1).svg?height=24&width=24" alt="Logo" />
         </div>
       </header>
 
