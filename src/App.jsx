@@ -5,7 +5,7 @@ import ManualPage from "./components/ManualPage";
 import ScanPage from "./components/ScanPage";
 import SignupPage from "./components/SignupPage";
 import SigninPage from "./components/SigninPage";
-import DiscoverPage from "./components/DiscoverPage"; // ADD THIS
+import DiscoverPage from "./components/DiscoverPage"; 
 
 function App() {
   return (

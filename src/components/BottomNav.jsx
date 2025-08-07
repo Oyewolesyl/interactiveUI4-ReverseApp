@@ -1,12 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-// Import your images here — replace placeholders with your actual file names
-import homeIconActive from "../assets/home-icon-active.svg"; // placeholder
-import homeIconInactive from "../assets/homeinactive.svg";    // placeholder
-import recycleActive from "../assets/recycle-active.svg";     // placeholder
-import recycleInactive from "../assets/recycle-inactive.svg"; // placeholder
-import exploreIcon from "../assets/explore_24px.svg";         // placeholder
-import profileActive from "../assets/pofile-active.svg";     // placeholder
-import profileInactive from "../assets/profile.svg";          // placeholder
+import homeIconActive from "../assets/home-icon-active.svg";
+import homeIconInactive from "../assets/homeinactive.svg";
+import recycleActive from "../assets/recycle-active.svg";
+import recycleInactive from "../assets/recycle-inactive.svg";
+import exploreIcon from "../assets/explore_24px.svg";
+import profileActive from "../assets/pofile-active.svg";
+import profileInactive from "../assets/profile.svg";
 
 export const BottomNav = () => {
   const location = useLocation();
@@ -32,7 +31,6 @@ export const BottomNav = () => {
         />
         <span>Recycle</span>
       </Link>
-      {/* CHANGE THIS FROM "#" TO "/discover" */}
       <Link to="/discover" className={`nav-item ${path === "/discover" ? "active" : ""}`}>
         <img src={exploreIcon || "/placeholder.svg"} width="32" height="32" alt="Discover" />
         <span>Discover</span>

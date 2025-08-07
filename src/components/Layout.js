@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
 
-// Import images at the top
 import Logo from "../assets/Vector.svg"
 import MenuIcon from "../assets/menu_24px.svg"
 import HomeIconActive from "../assets/home-icon-active.svg"
@@ -14,8 +13,6 @@ import ProfileIconInactive from "../assets/profile.svg"
 const Layout = ({ children, showHeader = true, showNav = true, logoOnly = false }) => {
   const location = useLocation()
   const path = location.pathname
-
-  
 
   return (
     <div className="mobile-container">

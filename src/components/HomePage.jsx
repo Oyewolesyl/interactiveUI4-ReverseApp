@@ -6,14 +6,12 @@ import MerchandisePopup from "./MerchandisePopup"
 const HomePage = () => {
   const navigate = useNavigate()
   
- 
   const [showPopup, setShowPopup] = useState(false)
   const [selectedItem, setSelectedItem] = useState(null)
 
   const handleRecycleClick = () => {
     navigate("/manual")
   }
-
 
   const handleViewClick = (index) => {
     const merchandiseItems = [
@@ -50,7 +48,6 @@ const HomePage = () => {
     setSelectedItem(merchandiseItems[index])
     setShowPopup(true)
   }
-
 
   const carouselImages = [
     "/assets/Component1.png",
@@ -114,7 +111,6 @@ const HomePage = () => {
           </p>
         </div>
 
-     
         <div className="merchandise-section">
           {[
             "/assets/Untitled-design2.png",
@@ -134,7 +130,6 @@ const HomePage = () => {
                   position: "relative"
                 }}
               >
-                
                 <div className="merch-overlay">
                   <p className="merch-description">Branded T-Shirt</p>
                   <button className="view-button" onClick={() => handleViewClick(index)}>
@@ -147,7 +142,6 @@ const HomePage = () => {
         </div>
       </main>
 
-      {/* ADD POPUP */}
       {showPopup && <MerchandisePopup item={selectedItem} onClose={() => setShowPopup(false)} />}
 
       <nav className="bottom-nav">

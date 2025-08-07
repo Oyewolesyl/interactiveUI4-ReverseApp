@@ -240,7 +240,7 @@ body {
   padding: 20px;
 }
 
-// Bottom navigation
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -363,7 +363,7 @@ body {
   border-radius: 2px;
 }
 
-// Profile page
+
 .profile-header {
   display: flex;
   justify-content: space-between;
@@ -524,7 +524,7 @@ body {
   font-weight: bold;
 }
 
-// Tabs
+
 .tabs {
   display: flex;
   border-bottom: 1px solid $border-color;
@@ -554,7 +554,7 @@ body {
   }
 }
 
-// Camera page
+
 .camera-container {
   position: relative;
   width: 100%;
@@ -617,7 +617,7 @@ body {
   font-size: 14px;
 }
 
-// Manual entry page
+
 .manual-content {
   padding: 16px;
   background-color: $light-gray;
@@ -698,7 +698,7 @@ body {
   cursor: pointer;
 }
 
-// Back button
+
 .back-button {
   background: none;
   border: none;
@@ -815,7 +815,7 @@ body {
   }
 }
 
-// Animated Number Styles
+
 .animated-number {
   display: inline-block;
   font-weight: bold;
@@ -823,7 +823,7 @@ body {
   font-size: inherit;
 }
 
-// Print Rewards Button
+
 .print-rewards-button {
   background: none;
   border: 2px solid $primary-color;
@@ -849,7 +849,7 @@ body {
   margin-top: 16px;
 }
 
-// Merchandise Popup Styles
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -965,7 +965,6 @@ body {
   }
 }
 
-// Discover Page Styles
 .discover-content {
   padding: 16px;
   background-color: $light-gray;
@@ -1067,7 +1066,7 @@ body {
   }
 }
 
-// QR Scanner specific styles
+
 .scan-result {
   color: $primary-color;
   font-weight: bold;
@@ -1078,7 +1077,7 @@ body {
   font-size: 14px;
 }
 
-// Carousel improvements
+
 .carousel-container {
   margin: 16px 0;
   
@@ -1087,7 +1086,7 @@ body {
   }
 }
 
-// Responsive adjustments
+
 @media (max-width: 480px) {
   .qr-popup-content,
   .popup-content {

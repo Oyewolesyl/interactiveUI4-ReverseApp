@@ -1,4 +1,3 @@
-// Replace your ScanPage.jsx with this:
 "use client"
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
@@ -17,7 +16,6 @@ const ScanPage = () => {
           console.log('QR Code detected:', result.data)
           setScannedResult(result.data)
           alert(`QR Code scanned: ${result.data}`)
-          // Redirect or process the scanned data
           setTimeout(() => {
             window.location.href = "/manual"
           }, 1000)
@@ -31,7 +29,6 @@ const ScanPage = () => {
 
       scanner.start().catch((error) => {
         console.error('Scanner start error:', error)
-        // Fallback to regular camera
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices
             .getUserMedia({
@@ -71,10 +68,8 @@ const ScanPage = () => {
 
   const handleManualScan = () => {
     if (qrScanner) {
-      // Force a scan attempt
       alert("Position a QR code in front of the camera")
     } else {
-      // Fallback behavior
       alert("Sneaker scanned successfully! Redirecting to results...")
       setTimeout(() => {
         window.location.href = "/manual"

@@ -1,4 +1,3 @@
-// Replace your ManualPage.jsx with this:
 "use client"
 import { useState } from "react"
 import { Link } from "react-router-dom"
@@ -12,7 +11,6 @@ const ManualPage = () => {
     reward: "voucher",
   })
 
-  // ADD THESE NEW STATES
   const [showQR, setShowQR] = useState(false)
   const [uniqueCode, setUniqueCode] = useState("")
 
@@ -44,7 +42,6 @@ const ManualPage = () => {
       const result = await response.json()
 
       if (response.ok && result.success) {
-        // REPLACE ALERT WITH QR CODE POPUP
         setUniqueCode(result.data.unique_code)
         setShowQR(true)
         
@@ -65,7 +62,6 @@ const ManualPage = () => {
 
   return (
     <div className="mobile-container">
-      {/* ALL YOUR EXISTING CODE STAYS THE SAME */}
       <header className="header">
         <div className="logo">
           <img src="/assets/Vector.svg?height=24&width=24" alt="Logo" />
@@ -150,10 +146,8 @@ const ManualPage = () => {
         </form>
       </main>
 
-   
       {showQR && <QRCodeGenerator value={uniqueCode} onClose={() => setShowQR(false)} />}
 
-      
       <nav className="bottom-nav">
         <Link to="/" className="nav-item">
           <img src="/assets/homeinactive.svg" width="32" height="32" alt="" />
@@ -177,5 +171,3 @@ const ManualPage = () => {
 }
 
 export default ManualPage
-
-

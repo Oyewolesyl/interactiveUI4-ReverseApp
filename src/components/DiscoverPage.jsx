@@ -6,8 +6,7 @@ import { useEffect, useState } from "react"
 
 const DiscoverPage = () => {
   const [searchTerm, setSearchTerm] = useState("")
-  
-  // Fix for default markers in react-leaflet
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const L = require('leaflet')
@@ -20,7 +19,6 @@ const DiscoverPage = () => {
     }
   }, [])
 
-  // Sample shop locations around Vilvoorde, Belgium
   const shops = [
     { id: 1, name: "Reverse Vilvoorde Central", lat: 50.9307, lng: 4.4286, address: "Grote Markt 15, 1800 Vilvoorde, Belgium" },
     { id: 2, name: "Reverse Machelen", lat: 50.9089, lng: 4.4444, address: "Dorpsstraat 23, 1830 Machelen, Belgium" },
@@ -29,7 +27,6 @@ const DiscoverPage = () => {
     { id: 5, name: "Reverse Meise", lat: 50.9394, lng: 4.3306, address: "Nieuwstraat 45, 1860 Meise, Belgium" },
   ]
 
-  // Filter shops based on search term
   const filteredShops = shops.filter(shop =>
     shop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     shop.address.toLowerCase().includes(searchTerm.toLowerCase())
@@ -50,8 +47,7 @@ const DiscoverPage = () => {
         <div className="discover-header">
           <h1>Discover Shops</h1>
           <p>Find Reverse locations near you</p>
-          
-          {/* SEARCH BAR */}
+
           <div className="search-container">
             <input
               type="text"
@@ -64,7 +60,6 @@ const DiscoverPage = () => {
         </div>
 
         <div className="map-container">
-          {/* CENTERED ON VILVOORDE, BELGIUM */}
           <MapContainer center={[50.9307, 4.4286]} zoom={12} style={{ height: "400px", width: "100%" }}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -95,7 +90,7 @@ const DiscoverPage = () => {
               <button className="shop-btn">Visit</button>
             </div>
           ))}
-          
+
           {filteredShops.length === 0 && (
             <p className="no-results">No stores found matching "{searchTerm}"</p>
           )}

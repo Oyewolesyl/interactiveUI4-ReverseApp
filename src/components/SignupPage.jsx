@@ -22,7 +22,6 @@ const SignupPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // Simple validation
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!")
       return
@@ -33,13 +32,11 @@ const SignupPage = () => {
       return
     }
 
-    // In a real app, you would send this data to a server
     console.log("Sign up form submitted:", {
       email: formData.email,
       password: formData.password,
     })
 
-    // Redirect to home page
     window.location.href = "/"
   }
 
@@ -47,14 +44,9 @@ const SignupPage = () => {
     <div className="mobile-container">
       <header className="header">
         <div className="logo">
-
-
- <Link to="/signin" className="back-button">
-          <img src="/assets/backicon.svg" alt="" />
-        </Link>
-
-
-
+          <Link to="/signin" className="back-button">
+            <img src="/assets/backicon.svg" alt="" />
+          </Link>
         </div>
         <div className="logo">
           <img src="/assets/reverse(1).svg?height=24&width=24" alt="Logo" />

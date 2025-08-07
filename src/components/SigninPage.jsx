@@ -30,23 +30,21 @@ const SigninPage = () => {
     }
 
     try {
-  const response = await fetch("/api/signin.php", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    email: formData.email,
-    nickname: formData.nickname,
-  }),
-})
+      const response = await fetch("/api/signin.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          nickname: formData.nickname,
+        }),
+      })
 
       const data = await response.json()
 
       if (response.ok && data.success) {
-        // Redirect to homepage on successful login
         alert("Signin successful!");
-window.location.href = "/";
+        window.location.href = "/";
       } else {
-        // Show error returned from backend
         setError(data.message || "Incorrect email or nickname")
       }
     } catch (err) {
