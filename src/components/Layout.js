@@ -10,6 +10,10 @@ import ExploreIcon from "../assets/explore_24px.svg"
 import ProfileIconActive from "../assets/profile-active.svg"
 import ProfileIconInactive from "../assets/profile.svg"
 
+const handleImgError = (e) => {
+  console.log("Image failed to load:", e.target.src)
+}
+
 const Layout = ({ children, showHeader = true, showNav = true, logoOnly = false }) => {
   const location = useLocation()
   const path = location.pathname
@@ -19,17 +23,11 @@ const Layout = ({ children, showHeader = true, showNav = true, logoOnly = false 
       {showHeader && (
         <header className="header">
           <div className="logo">
-            <img src={Logo} alt="Logo" onError={handleImgError} />
+            <img src={Logo || "/placeholder.svg"} alt="Logo" onError={handleImgError} />
           </div>
           {!logoOnly && (
             <button className="menu-button">
-              <img
-                src={MenuIcon}
-                width="32"
-                height="32"
-                alt="Menu"
-                onError={handleImgError}
-              />
+              <img src={MenuIcon || "/placeholder.svg"} width="32" height="32" alt="Menu" onError={handleImgError} />
             </button>
           )}
         </header>
@@ -59,9 +57,9 @@ const Layout = ({ children, showHeader = true, showNav = true, logoOnly = false 
             />
             <span>Recycle</span>
           </Link>
-          <Link to="#" className="nav-item">
+          <Link to="/discover" className={`nav-item ${path === "/discover" ? "active" : ""}`}>
             <img
-              src={ExploreIcon}
+              src={ExploreIcon || "/placeholder.svg"}
               width="32"
               height="32"
               alt="Discover"

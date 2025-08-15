@@ -2,7 +2,7 @@
 "use client"
 import { useState, useEffect } from "react"
 
-const AnimatedNumber = ({ targetValue, duration = 2000, prefix = "£" }) => {
+const AnimatedNumber = ({ targetValue, duration = 2000, prefix = "€" }) => {
   const [currentValue, setCurrentValue] = useState(0)
 
   useEffect(() => {
